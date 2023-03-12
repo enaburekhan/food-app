@@ -1,17 +1,35 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getMeals } from '../../redux/mealsReducer';
-import { MealsTitle } from './style';
+import { MealCard, MealsTitle, StyledMainContainer } from './style';
 
 const Meals = () => {
+  const meals = useSelector((state) => state.meals.data);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getMeals());
   }, [dispatch]);
 
+  const renderMeals =
+    meals &&
+    meals.map((meal) => (
+      <MealCard className='card' key={meal.idCategory}>
+        <img
+          src={meal.strCategoryThumb}
+          className='card-img-top'
+          alt={meal.strCategory}
+        />
+        <div className='card-body'>
+          <p className='card-text'>{meal.strCategory}</p>
+          <p className='card-text'>{meal.strCategoryDescription}</p>
+        </div>
+      </MealCard>
+    ));
+
   return (
     <div>
       <MealsTitle>Meals</MealsTitle>
+      <StyledMainContainer>{renderMeals}</StyledMainContainer>
     </div>
   );
 };

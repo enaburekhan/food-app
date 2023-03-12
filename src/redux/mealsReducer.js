@@ -6,7 +6,6 @@ export const getMeals = createAsyncThunk('meals/getMeals', async () => {
     `https://www.themealdb.com/api/json/v1/1/categories.php`
   );
   const data = response.data;
-  console.log('data', data);
   return data;
 });
 

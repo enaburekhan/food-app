@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Meals from './meals/Meals';
 
 function App() {
