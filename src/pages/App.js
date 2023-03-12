@@ -1,7 +1,9 @@
+import Meals from './meals/Meals';
+
 function App() {
   return (
     <div className='App'>
-      <h1>Welcome</h1>
+      <Meals />
     </div>
   );
 }
