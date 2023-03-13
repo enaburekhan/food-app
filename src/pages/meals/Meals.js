@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getMeals } from '../../redux/mealsReducer';
 import { MealCard, MealsTitle, StyledMainContainer } from './style';
 
@@ -20,7 +21,9 @@ const Meals = () => {
           alt={meal.strCategory}
         />
         <div className='card-body'>
-          <p className='card-text'>{meal.strCategory}</p>
+          <Link to='' className='card-text'>
+            {meal.strCategory}
+          </Link>
           <p className='card-text'>{meal.strCategoryDescription}</p>
         </div>
       </MealCard>
