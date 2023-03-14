@@ -6,6 +6,7 @@ import { MealCard, MealsTitle, StyledMainContainer } from './style';
 
 const Meals = () => {
   const meals = useSelector((state) => state.meals.data);
+  console.log('meals', meals);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getMeals());
@@ -14,15 +15,15 @@ const Meals = () => {
   const renderMeals =
     meals &&
     meals.map((meal) => (
-      <MealCard className='card' key={meal.idCategory}>
+      <MealCard className='card' key={meal.idMeal}>
         <img
-          src={meal.strCategoryThumb}
+          src={meal.strMealThumb}
           className='card-img-top'
-          alt={meal.strCategory}
+          alt={meal.strMeal}
         />
         <div className='card-body'>
           <Link to='' className='card-text'>
-            {meal.strCategory}
+            {meal.strMeal}
           </Link>
           <p className='card-text'>{meal.strCategoryDescription}</p>
         </div>

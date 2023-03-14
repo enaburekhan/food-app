@@ -3,9 +3,10 @@ import axios from 'axios';
 
 export const getMeals = createAsyncThunk('meals/getMeals', async () => {
   const response = await axios.get(
-    `https://www.themealdb.com/api/json/v1/1/categories.php`
+    `https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood`
   );
   const data = response.data;
+  console.log('data', data);
   return data;
 });
 
@@ -39,7 +40,7 @@ export const mealsSlice = createSlice({
     },
     [getMeals.fulfilled]: (state, action) => {
       state.loading = false;
-      state.data = action.payload.categories;
+      state.data = action.payload.meals;
     },
     [getMealDetails.pending]: (state) => {
       state.loading = true;
