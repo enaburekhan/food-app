@@ -6,7 +6,6 @@ import { MealCard, MealsTitle, StyledMainContainer } from './style';
 
 const Meals = () => {
   const meals = useSelector((state) => state.meals.data);
-  console.log('meals', meals);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getMeals());
@@ -22,7 +21,7 @@ const Meals = () => {
           alt={meal.strMeal}
         />
         <div className='card-body'>
-          <Link to='' className='card-text'>
+          <Link to={`/${meal.idMeal}`} className='card-text'>
             {meal.strMeal}
           </Link>
           <p className='card-text'>{meal.strCategoryDescription}</p>

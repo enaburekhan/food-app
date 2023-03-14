@@ -6,7 +6,6 @@ export const getMeals = createAsyncThunk('meals/getMeals', async () => {
     `https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood`
   );
   const data = response.data;
-  console.log('data', data);
   return data;
 });
 
@@ -17,7 +16,6 @@ export const getMealDetails = createAsyncThunk(
       `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
     );
     const data = response.data;
-    console.log('data', data);
     return data;
   }
 );
@@ -51,7 +49,7 @@ export const mealsSlice = createSlice({
     },
     [getMealDetails.fulfilled]: (state, action) => {
       state.loading = false;
-      state.data = action.payload;
+      state.data = action.payload.meals;
     },
   },
 });
