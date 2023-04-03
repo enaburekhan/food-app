@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getMeals } from '../../redux/mealsReducer';
-import { MealCard, MealsTitle, StyledMainContainer } from './style';
+import { MealCard, StyledMainContainer } from './style';
 
 const Meals = () => {
   const meals = useSelector((state) => state.meals.data);
@@ -31,7 +31,6 @@ const Meals = () => {
 
   return (
     <div>
-      <MealsTitle>Meals</MealsTitle>
       <StyledMainContainer>{renderMeals}</StyledMainContainer>
     </div>
   );
