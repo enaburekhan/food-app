@@ -5,15 +5,17 @@ import { getMeals } from '../../redux/mealsReducer';
 import { MealCard, StyledMainContainer } from './style';
 
 const Meals = () => {
-  const meals = useSelector((state) => state.meals.data);
+  const meals = useSelector((state) => state.meals);
+  console.log('meals', meals);
+  const { loading } = meals;
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getMeals());
   }, [dispatch]);
 
   const renderMeals =
-    meals &&
-    meals.map((meal) => (
+    meals.data &&
+    meals.data.map((meal) => (
       <MealCard className='card' key={meal.idMeal}>
         <img
           src={meal.strMealThumb}
@@ -31,6 +33,7 @@ const Meals = () => {
 
   return (
     <div>
+      {loading && <p>Loading...</p>}
       <StyledMainContainer>{renderMeals}</StyledMainContainer>
     </div>
   );

@@ -7,6 +7,7 @@ const MealDetails = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const meal = useSelector((state) => state.meals.data);
+  console.log('meal', meal);
 
   useEffect(() => {
     dispatch(getMealDetails(id));
