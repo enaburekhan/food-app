@@ -6,7 +6,6 @@ import { MealCard, StyledMainContainer } from './style';
 
 const Meals = () => {
   const meals = useSelector((state) => state.meals);
-  console.log('meals', meals);
   const { loading } = meals;
   const dispatch = useDispatch();
   useEffect(() => {
